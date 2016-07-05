@@ -5989,7 +5989,18 @@
         return this.classShapes(d) + this.generateClass(CLASS.circles, d.id);
     };
     c3_chart_internal_fn.classBar = function (d) {
-        return this.classShape(d) + this.generateClass(CLASS.bar, d.index);
+    	//If d.id is in regions, add the regions part
+    	var barRegion = ' ';
+        if (this.config.data_regions[d.id]){ 
+        	for (var i = 0; i < this.config.data_regions[d.id].length; i++){
+        		if (d.index >= this.config.data_regions[d.id][i]['start'] && d.index <= this.config.data_regions[d.id][i]['end']){
+        			barRegion+= CLASS.barRegion;
+        			console.log(this.config.data_regions);
+        			break;
+        		}
+        	}
+        }
+        return this.classShape(d) + this.generateClass(CLASS.bar, d.index) + barRegion;
     };
     c3_chart_internal_fn.classBars = function (d) {
         return this.classShapes(d) + this.generateClass(CLASS.bars, d.id);
