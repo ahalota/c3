@@ -62,6 +62,18 @@
 .c3-bar._expanded_ {
   fill-opacity: 0.75; }
 
+/*-- Bar for dashed/transparent regions */
+.c3-bar-region {
+	stroke-width: 2;
+	stroke-opacity: 0.7;
+	stroke-dasharray: 5 5;
+	fill-opacity: 0.3;
+}
+
+.c3-bar-region._expanded_ {
+	fill-opacity: 0.5;
+}
+
 /*-- Focus --*/
 .c3-target.c3-focused {
   opacity: 1; }
